@@ -12,13 +12,17 @@ const DEAD_COLOR = "#FFFFFF";
 const ALIVE_COLOR = "#000000";
 
 // Construct the universe, and get its width and height.
-const universe = Universe.new();
+let universe = Universe.new();
 const width = universe.width();
 const height = universe.height();
 
+const canvas = document.getElementById("game-of-life-canvas");
+const playPauseButton = document.getElementById("play-pause");
+const randomButton = document.getElementById("random");
+const tickSpeed = document.getElementById("tick-speed");
+
 // Give the canvas room for all of our cells and a 1px border
 // around each of them.
-const canvas = document.getElementById("game-of-life-canvas");
 canvas.height = (CELL_SIZE + 1) * height + 1;
 canvas.width = (CELL_SIZE + 1) * width + 1;
 
@@ -26,7 +30,6 @@ const ctx = canvas.getContext('2d');
 
 let animationId = null;
 
-const tickSpeed = document.querySelector("#tick-speed");
 
 const renderLoop = () => {
     for (let tick = 0; tick < tickSpeed.value; tick++) {
@@ -97,7 +100,6 @@ drawCells();
 requestAnimationFrame(renderLoop);
 
 
-const playPauseButton = document.getElementById("play-pause");
 
 const play = () => {
     playPauseButton.textContent = "⏸";
@@ -136,3 +138,7 @@ canvas.addEventListener("click", event => {
     drawGrid();
     drawCells();
 });
+
+randomButton.addEventListener("click", () => {
+    universe = universe.random();
+})

@@ -1,5 +1,6 @@
 mod utils;
 
+use rand::prelude::*;
 use std::fmt;
 use wasm_bindgen::prelude::*;
 
@@ -115,6 +116,29 @@ impl Universe {
         let cells = (0..width * height)
             .map(|i| {
                 if i % 2 == 0 || i % 7 == 0 {
+                    Cell::Alive
+                } else {
+                    Cell::Dead
+                }
+            })
+            .collect();
+
+        Universe {
+            width,
+            height,
+            cells,
+        }
+    }
+
+    pub fn random(&self) -> Universe {
+        utils::set_panic_hook();
+
+        let width = 64;
+        let height = 64;
+
+        let cells = (0..width * height)
+            .map(|_index| {
+                if rand::random::<bool>() {
                     Cell::Alive
                 } else {
                     Cell::Dead
