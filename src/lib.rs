@@ -126,8 +126,8 @@ impl Universe {
     pub fn new() -> Universe {
         utils::set_panic_hook();
 
-        let width = 64;
-        let height = 64;
+        let width = 128;
+        let height = 128;
 
         // panic!("OH NOES!");
 
@@ -151,8 +151,8 @@ impl Universe {
     pub fn random() -> Universe {
         utils::set_panic_hook();
 
-        let width = 64;
-        let height = 64;
+        let width = 128;
+        let height = 128;
 
         let cells = (0..width * height)
             .map(|_index| {
@@ -174,8 +174,8 @@ impl Universe {
     pub fn all_dead() -> Universe {
         utils::set_panic_hook();
 
-        let width = 64;
-        let height = 64;
+        let width = 128;
+        let height = 128;
 
         let cells = (0..width * height).map(|_index| Cell::Dead).collect();
 
