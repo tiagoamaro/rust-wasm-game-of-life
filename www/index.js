@@ -16,6 +16,7 @@ let universe = Universe.new();
 const width = universe.width();
 const height = universe.height();
 
+const allDeadButton = document.getElementById("all-dead");
 const canvas = document.getElementById("game-of-life-canvas");
 const playPauseButton = document.getElementById("play-pause");
 const randomButton = document.getElementById("random");
@@ -140,5 +141,9 @@ canvas.addEventListener("click", event => {
 });
 
 randomButton.addEventListener("click", () => {
-    universe = universe.random();
+    universe = Universe.random();
+})
+
+allDeadButton.addEventListener("click", () => {
+    universe = Universe.all_dead();
 })
