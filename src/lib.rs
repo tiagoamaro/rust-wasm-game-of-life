@@ -101,6 +101,8 @@ impl Universe {
         let width = 64;
         let height = 64;
 
+        // panic!("OH NOES!");
+
         let cells = (0..width * height)
             .map(|i| {
                 if i % 2 == 0 || i % 7 == 0 {
