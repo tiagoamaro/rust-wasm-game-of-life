@@ -16,6 +16,11 @@
       align-items: center;
       justify-content: center;
     }
+
+    #fps {
+      white-space: pre;
+      font-family: monospace;
+    }
   </style>
 </head>
 
@@ -25,6 +30,7 @@
   <button id="random">Random</button>
   <input id="tick-speed" type="range" min="1" max="100" step="1" value="1">
   <button id="play-pause">⏸</button>
+  <div id="fps"></div>
   <canvas id="game-of-life-canvas"></canvas>
   <script src="./bootstrap.js"></script>
 </body>
