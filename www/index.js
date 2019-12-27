@@ -26,8 +26,12 @@ const ctx = canvas.getContext('2d');
 
 let animationId = null;
 
+const tickSpeed = document.querySelector("#tick-speed");
+
 const renderLoop = () => {
-    universe.tick();
+    for (let tick = 0; tick < tickSpeed.value; tick++) {
+        universe.tick();
+    }
 
     drawGrid();
     drawCells();
